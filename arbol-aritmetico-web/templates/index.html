@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluador de Expresiones Aritméticas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <span>&#60;/&#62;</span>
+        <div>
+            <h1>Evaluador de Expresiones Aritméticas</h1>
+            <p>Visualiza expresiones matemáticas como árboles binarios</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PANEL IZQUIERDO: CALCULADORA -->
+        <section id="panel-calculadora">
+            <h2>Calculadora</h2>
+
+            <!-- PANTALLA -->
+            <div id="pantalla">
+                <span id="expresion-display">0</span>
+                <span id="resultado-display"></span>
+            </div>
+
+            <!-- BOTONES -->
+            <div id="botones">
+
+                <button onclick="presionar('C')"    class="btn-especial">C</button>
+                <button onclick="presionar('(')"    class="btn-especial">(</button>
+                <button onclick="presionar(')')"    class="btn-especial">)</button>
+                <button onclick="borrar()"          class="btn-especial">&#9003;</button>
+
+                <button onclick="presionar('7')"    class="btn-numero">7</button>
+                <button onclick="presionar('8')"    class="btn-numero">8</button>
+                <button onclick="presionar('9')"    class="btn-numero">9</button>
+                <button onclick="presionar('/')"    class="btn-operador">÷</button>
+
+                <button onclick="presionar('4')"    class="btn-numero">4</button>
+                <button onclick="presionar('5')"    class="btn-numero">5</button>
+                <button onclick="presionar('6')"    class="btn-numero">6</button>
+                <button onclick="presionar('*')"    class="btn-operador">×</button>
+
+                <button onclick="presionar('1')"    class="btn-numero">1</button>
+                <button onclick="presionar('2')"    class="btn-numero">2</button>
+                <button onclick="presionar('3')"    class="btn-numero">3</button>
+                <button onclick="presionar('-')"    class="btn-operador">-</button>
+
+                <button onclick="presionar('0')"    class="btn-numero">0</button>
+                <button onclick="presionar('.')"    class="btn-numero">.</button>
+                <button onclick="presionar('^')"    class="btn-numero">^</button>
+                <button onclick="presionar('+')"    class="btn-operador">+</button>
+
+                <button onclick="calcular()"        class="btn-igual">=</button>
+
+            </div>
+        </section>
+
+        <!-- PANEL DERECHO: ÁRBOL -->
+        <section id="panel-arbol">
+            <h2>Visualización del Árbol</h2>
+
+            <div id="contenedor-arbol">
+                <h3>Árbol Binario de Expresión</h3>
+                <div id="area-arbol">
+                    <p id="mensaje-arbol">Ingresa una expresión para visualizar el árbol</p>
+                    <svg id="svg-arbol"></svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/arbol.js') }}"></script>
+</body>
+</html>
