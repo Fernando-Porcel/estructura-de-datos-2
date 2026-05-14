@@ -261,18 +261,18 @@ class ArbolBinario:
         balance = self._factor_equilibrio(nodo)
 
         if balance > 1 and self._factor_equilibrio(nodo.izquierdo) >= 0:
-            return self._rotar_derecha(nodo), True
-
-        if balance < -1 and self._factor_equilibrio(nodo.izquierdo) < 0:
-            return self._rotar_izquierda(nodo), True
-
-        if balance > 1 and self._factor_equilibrio(nodo.derecho) <= 0:
+            return self._rotar_derecha(nodo)
+        
+        if balance < -1 and self._factor_equilibrio(nodo.derecho) <= 0:
+            return self._rotar_izquierda(nodo)
+        
+        if balance > 1 and self._factor_equilibrio(nodo.izquierdo) < 0:
             nodo.izquierdo = self._rotar_izquierda(nodo.izquierdo)
-            return self._rotar_derecha(nodo), True
-
+            return self._rotar_derecha(nodo)
+        
         if balance < -1 and self._factor_equilibrio(nodo.derecho) > 0:
             nodo.derecho = self._rotar_derecha(nodo.derecho)
-            return self._rotar_izquierda(nodo), True
+            return self._rotar_izquierda(nodo)
 
         return nodo, True
 

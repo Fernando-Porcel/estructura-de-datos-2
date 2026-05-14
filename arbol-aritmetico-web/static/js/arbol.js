@@ -21,7 +21,7 @@ function presionar(caracter) {
 
     if (expresion !== '' && esOperador(caracter) && esOperador(expresion.at(-1))) {
         expresion = expresion.slice(0, -1) + caracter
-    }else {
+    } else {
         expresion += caracter
     }
 
@@ -97,7 +97,7 @@ function dibujarNodo(svg, nodo, x, y, xMin, xMax, xPadre, yPadre) {
 }
  
 function dibujarLinea(svg, x1, y1, x2, y2) {
-    const radio = 16;
+    const radio = 20;
     const angulo = Math.atan2(y2 - y1, x2 - x1);
     
     // La línea empieza en el borde del círculo padre
@@ -122,7 +122,7 @@ function dibujarCirculo(svg, x, y, esOpe) {
     const circulo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circulo.setAttribute('cx', x);
     circulo.setAttribute('cy', y);
-    circulo.setAttribute('r', 16);
+    circulo.setAttribute('r', 20);
     circulo.setAttribute('fill', esOpe ? '#00d4aa' : '#151c24');
     circulo.setAttribute('stroke', esOpe ? '#00d4aa' : '#1e2a36');
     circulo.setAttribute('stroke-width', '1.5');
@@ -136,7 +136,7 @@ function dibujarTexto(svg, x, y, valor) {
     texto.setAttribute('text-anchor', 'middle');
     texto.setAttribute('dominant-baseline', 'central');
     texto.setAttribute('fill', esOperador(valor) ? '#0a0e12' : '#ffffff');
-    texto.setAttribute('font-size', '14');
+    texto.setAttribute('font-size', esOperador(valor) ? '18' : '14');
     texto.setAttribute('font-weight', '600');
     texto.setAttribute('font-family', 'JetBrains Mono, monospace');
     texto.textContent = valor;
